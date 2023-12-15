@@ -1,0 +1,49 @@
+<div>
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-lg-8 offset-lg-2">
+        <div class="card">
+          <div class="card-header text-center">
+            <h3>Add New Tutorial</h3>
+          </div>
+          <div class="card-body">
+            <div *ngIf="!submitted">
+              <div class="form-group">
+                <label for="title">Title</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="title"
+                  required
+                  [(ngModel)]="tutorial.title"
+                  name="title"
+                  placeholder="Enter tutorial title"
+                />
+              </div>
+              <div class="form-group mb-4"> <!-- Added margin-bottom here -->
+                <label for="description">Description</label>
+                <textarea
+                  class="form-control"
+                  id="description"
+                  required
+                  [(ngModel)]="tutorial.description"
+                  name="description"
+                  placeholder="Enter tutorial description"
+                  rows="4"
+                ></textarea>
+              </div>
+              <div class="text-right"> <!-- Align button to the right -->
+                <button (click)="saveTutorial()" class="btn btn-success">Submit</button>
+              </div>
+            </div>
+
+            <div *ngIf="submitted" class="alert alert-success mt-3">
+              <h4>The tutorial has been submitted successfully!</h4>
+              <button class="btn btn-success mt-2" (click)="newTutorial()">Add Another</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
